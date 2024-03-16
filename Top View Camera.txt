@@ -1,5 +1,5 @@
 {$CLEO}
-0662: "Special for Fenny / Скачивателя хуйни"
+0662: "Special for Fenny"
 0662: "Top View Camera for low PC"
 0662: "Author: andre500"
 
