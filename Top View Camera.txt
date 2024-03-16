@@ -1,0 +1,49 @@
+{$CLEO}
+0662: "Special for Fenny / Скачивателя хуйни"
+0662: "Top View Camera for low PC"
+0662: "Author: andre500"
+
+const
+scplayer = $PLAYER_ACTOR
+enabled = 0@
+pos_x = 1@
+pos_y = 2@
+pos_z = 3@
+point_x = 4@
+point_y = 5@
+point_z = 6@
+distance = 10.0
+end
+
+while true
+    wait 0
+    if
+        Player.Defined(0)
+    then
+        if
+            enabled == 1
+        then
+            Actor.StorePos(scplayer, pos_x, pos_y, pos_z)
+            Actor.StorePos(scplayer, point_x, point_y, point_z)
+            pos_z += distance
+            Camera.SetPosition(pos_x, pos_y, pos_z, 0.0, 0.0, 0.0)
+            Camera.PointAt(point_x, point_y, point_z, 2)
+        end
+    end
+    
+    if
+        0ADC:   test_cheat "TOP"
+    then
+        if
+            enabled == 1
+        then
+            enabled = 0
+            0AD1: show_formatted_text_highpriority "Top View Camera ~r~Disabled~s~." time 3000
+            Camera.Restore_WithJumpCut()
+            Camera.SetBehindPlayer()
+        else
+            enabled = 1
+            0AD1: show_formatted_text_highpriority "Top View Camera ~g~Enabled~s~." time 3000
+        end
+    end
+end
